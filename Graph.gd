@@ -46,11 +46,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if event.is_released():
 			if event.button_index == MouseButton.MOUSE_BUTTON_LEFT and node_place_menu:
 				node_place_menu.queue_free()
-			if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
-				node_place_menu = node_place_menu_scene.instantiate()
-				node_place_menu.graph = self
-				add_child(node_place_menu)
-				node_place_menu.position = get_global_mouse_position()
+
 
 
 func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
@@ -63,3 +59,10 @@ func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
 
 func create_instruction_list() -> void:
 	pass
+
+
+func _on_popup_request(at_position: Vector2) -> void:
+	node_place_menu = node_place_menu_scene.instantiate()
+	node_place_menu.graph = self
+	add_child(node_place_menu)
+	node_place_menu.position = at_position
