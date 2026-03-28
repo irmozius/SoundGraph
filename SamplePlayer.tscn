@@ -4,14 +4,9 @@
 
 [node name="SamplePlayer" type="GraphNode" unique_id=1189104632 node_paths=PackedStringArray("sample_button", "file_dialog", "play_button", "pitch_min_input", "pitch_max_input", "vol_min_input", "vol_max_input")]
 anchors_preset = -1
-anchor_left = 0.4001736
-anchor_top = 0.36574075
-anchor_right = 0.5069444
-anchor_bottom = 0.6944444
-offset_left = -186.0
-offset_top = -59.0
-offset_right = -143.0
-offset_bottom = -156.99997
+anchor_right = 0.2612847
+anchor_bottom = 0.2978395
+offset_bottom = 1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -33,6 +28,7 @@ pitch_min_input = NodePath("Menu/Pitch/PitchFrom")
 pitch_max_input = NodePath("Menu/Pitch/PitchTo")
 vol_min_input = NodePath("Menu/Vol/VolFrom")
 vol_max_input = NodePath("Menu/Vol/VolTo")
+metadata/_edit_use_anchors_ = true
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=162873711]
 oversampling_override = 1.0

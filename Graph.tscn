@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ctj1yf38rsxke" path="res://Graph.gd" id="1_ei6m4"]
 [ext_resource type="PackedScene" uid="uid://c2kbjsdkc7kui" path="res://NodePlaceMenu.tscn" id="2_7k101"]
+[ext_resource type="Script" uid="uid://b56i2no2eqi27" path="res://Output.gd" id="3_6pvs8"]
 
-[node name="Graph" type="GraphEdit" unique_id=1650061467]
+[node name="Graph" type="GraphEdit" unique_id=1650061467 node_paths=PackedStringArray("output_node")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,20 +16,17 @@ type_names = {
 }
 script = ExtResource("1_ei6m4")
 node_place_menu_scene = ExtResource("2_7k101")
+output_node = NodePath("Output")
 
 [node name="Output" type="GraphNode" parent="." unique_id=1581384518]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.6545139
-anchor_top = 0.3132716
-anchor_right = 0.7690972
-anchor_bottom = 0.53549385
-offset_left = 223.0
-offset_top = -5.0
-offset_right = 223.0
-offset_bottom = -5.0
+anchor_left = 0.4375
+anchor_top = 0.3919753
+anchor_right = 0.5520833
+anchor_bottom = 0.61419755
 mouse_filter = 1
-position_offset = Vector2(977, 198)
+position_offset = Vector2(504, 254)
 title = "Output"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -39,6 +37,7 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
+script = ExtResource("3_6pvs8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="Output" unique_id=1597884463]

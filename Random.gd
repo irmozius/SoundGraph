@@ -1,16 +1,11 @@
 class_name RandomNode extends AudioNode
 
-var sound_list : Array[AudioNode]:
-	set(v):
-		sound_list = v
-		print(sound_list)
-
 func execute():
-	if sound_list.size() == 0: return
-	sound_list.pick_random().execute()
+	if connected_by.size() == 0: return
+	connected_by.pick_random().execute()
 
 func _on_sound_deleted(sound : AudioNode):
-	sound_list.erase(sound)
+	connected_by.erase(sound)
 
 func _on_add_pressed() -> void:
 	var new_label : Label = get_child(get_child_count() - 1).duplicate()

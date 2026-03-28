@@ -1,7 +1,7 @@
 class_name Graph extends GraphEdit
 
 @export var node_place_menu_scene : PackedScene
-@export var output_node : GraphNode
+@export var output_node : OutputNode
 
 var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
@@ -14,20 +14,21 @@ func _input(event: InputEvent) -> void:
 func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> bool:
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)
 	if !connected:
-		var f_node : GraphNode = get_node(str(from_node))
-		var t_node : GraphNode = get_node(str(to_node))
+		var f_node : AudioNode = get_node(str(from_node))
+		var t_node : AudioNode = get_node(str(to_node))
 		connect_node(from_node, from_port, to_node, to_port)
+		f_node.connected_to.append(t_node)
+		t_node.connected_by.append(f_node)
 		match get_node_title(str(to_node)):
 			"Output":
 				output_connections.append(f_node)
 			"Random":
-				t_node.sound_list.append(f_node)
 				f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
 		return true
 	else: return false
 
 func get_node_title(node_name : String) -> String:
-	var node : GraphNode = get_node(node_name)
+	var node : AudioNode = get_node(node_name)
 	return node.title
 
 func _on_connection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
@@ -35,11 +36,13 @@ func _on_connection_request(from_node: StringName, from_port: int, to_node: Stri
 
 func _on_disconnection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	disconnect_node(from_node, from_port, to_node, to_port)
+	var f_node : AudioNode = get_node(str(from_node))
+	var t_node : AudioNode = get_node(str(to_node))
+	f_node.connected_to.erase(t_node)
+	t_node.connected_by.erase(f_node)
 	match get_node_title(str(to_node)):
 		"Output":
-			output_connections.erase(get_node(str(from_node)))
-		"Random":
-				get_node(str(to_node)).sound_list.erase(get_node(str(from_node)))
+			output_connections.erase(f_node)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

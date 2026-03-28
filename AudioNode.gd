@@ -1,5 +1,8 @@
 @abstract class_name AudioNode extends GraphNode
 
-@abstract func execute()
-
 signal deleted
+
+var connected_by : Array[AudioNode]
+var connected_to : Array[AudioNode]
+
+@abstract func execute()
