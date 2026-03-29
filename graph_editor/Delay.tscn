@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqrre8omr7t57"]
 
-[ext_resource type="Script" uid="uid://cw8mnqri85o84" path="res://delay.gd" id="1_rugon"]
+[ext_resource type="Script" uid="uid://cw8mnqri85o84" path="res://graph_editor/DelayNode.gd" id="1_rugon"]
 
 [node name="Delay" type="GraphNode" unique_id=186926108 node_paths=PackedStringArray("timer", "spinbox")]
 anchors_preset = -1
@@ -39,4 +39,5 @@ value = 1.0
 [node name="Timer" type="Timer" parent="." unique_id=379913240]
 one_shot = true
 
+[connection signal="value_changed" from="HBox/SpinBox" to="." method="_on_spin_box_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

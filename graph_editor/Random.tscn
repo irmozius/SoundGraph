@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b85hs6lw12tjj"]
 
-[ext_resource type="Script" uid="uid://dswcfcfes43jt" path="res://Random.gd" id="1_15g7e"]
+[ext_resource type="Script" uid="uid://dswcfcfes43jt" path="res://graph_editor/RandomNode.gd" id="1_15g7e"]
 
 [node name="Random" type="GraphNode" unique_id=186926108]
 anchors_preset = -1

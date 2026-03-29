@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://cujej7aecjsk4"]
 
-[ext_resource type="Script" uid="uid://ctj1yf38rsxke" path="res://Graph.gd" id="1_ei6m4"]
-[ext_resource type="PackedScene" uid="uid://c2kbjsdkc7kui" path="res://NodePlaceMenu.tscn" id="2_7k101"]
-[ext_resource type="Script" uid="uid://b56i2no2eqi27" path="res://Output.gd" id="3_6pvs8"]
+[ext_resource type="Script" uid="uid://ctj1yf38rsxke" path="res://graph_editor/GraphEditor.gd" id="1_h47dt"]
+[ext_resource type="PackedScene" uid="uid://c2kbjsdkc7kui" path="res://graph_editor/NodePlaceMenu.tscn" id="2_8qwio"]
+[ext_resource type="Script" uid="uid://b56i2no2eqi27" path="res://graph_editor/Output.gd" id="3_iqmtu"]
+[ext_resource type="Script" uid="uid://ka7377bj6h08" path="res://graph_player/GraphPlayer.gd" id="4_2bkcl"]
+[ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://graph_editor/SoundGraph.gd" id="5_8qwio"]
+
+[sub_resource type="Resource" id="Resource_iqmtu"]
+script = ExtResource("5_8qwio")
+metadata/_custom_type_script = "uid://b8tkjdyab0sv"
 
 [node name="Graph" type="GraphEdit" unique_id=1650061467 node_paths=PackedStringArray("output_node")]
 anchors_preset = 15
@@ -14,8 +20,8 @@ right_disconnects = true
 type_names = {
 0: "Audio"
 }
-script = ExtResource("1_ei6m4")
-node_place_menu_scene = ExtResource("2_7k101")
+script = ExtResource("1_h47dt")
+node_place_menu_scene = ExtResource("2_8qwio")
 output_node = NodePath("Output")
 
 [node name="Output" type="GraphNode" parent="." unique_id=1581384518]
@@ -23,8 +29,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4375
 anchor_top = 0.3919753
-anchor_right = 0.5520833
-anchor_bottom = 0.61419755
+anchor_right = 0.44270834
+anchor_bottom = 0.40123457
+offset_right = 132.0
+offset_bottom = 144.0
 mouse_filter = 1
 position_offset = Vector2(504, 254)
 title = "Output"
@@ -37,12 +45,16 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
-script = ExtResource("3_6pvs8")
+script = ExtResource("3_iqmtu")
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="Output" unique_id=1597884463]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="GraphPlayer" type="Node" parent="." unique_id=1831881814]
+script = ExtResource("4_2bkcl")
+graph = SubResource("Resource_iqmtu")
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
 [connection signal="delete_nodes_request" from="." to="." method="_on_delete_nodes_request"]

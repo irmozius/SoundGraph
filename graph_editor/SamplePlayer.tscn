@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vkwwrhhth385"]
 
-[ext_resource type="Script" uid="uid://ccj52dbwu1olg" path="res://SamplePlayer.gd" id="1_ye2mf"]
+[ext_resource type="Script" uid="uid://ccj52dbwu1olg" path="res://graph_editor/SamplePlayerNode.gd" id="1_ye2mf"]
 
 [node name="SamplePlayer" type="GraphNode" unique_id=1189104632 node_paths=PackedStringArray("sample_button", "file_dialog", "play_button", "pitch_min_input", "pitch_max_input", "vol_min_input", "vol_max_input")]
 anchors_preset = -1
@@ -107,4 +107,8 @@ text = "[Play]"
 
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="Menu/ChooseSample" to="." method="_on_choose_sample_pressed"]
+[connection signal="value_changed" from="Menu/Pitch/PitchFrom" to="." method="_on_pitch_from_value_changed"]
+[connection signal="value_changed" from="Menu/Pitch/PitchTo" to="." method="_on_pitch_to_value_changed"]
+[connection signal="value_changed" from="Menu/Vol/VolFrom" to="." method="_on_vol_from_value_changed"]
+[connection signal="value_changed" from="Menu/Vol/VolTo" to="." method="_on_vol_to_value_changed"]
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]

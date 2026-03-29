@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c2kbjsdkc7kui"]
 
-[ext_resource type="Script" uid="uid://bf32nqwb385pe" path="res://NodePlaceMenu.gd" id="1_cnvf5"]
-[ext_resource type="PackedScene" uid="uid://vkwwrhhth385" path="res://SamplePlayer.tscn" id="2_l8g2y"]
-[ext_resource type="PackedScene" uid="uid://b85hs6lw12tjj" path="res://Random.tscn" id="3_l8g2y"]
-[ext_resource type="PackedScene" uid="uid://cqrre8omr7t57" path="res://Delay.tscn" id="4_dhl5a"]
+[ext_resource type="Script" uid="uid://bf32nqwb385pe" path="res://graph_editor/NodePlaceMenu.gd" id="1_cnvf5"]
+[ext_resource type="PackedScene" uid="uid://vkwwrhhth385" path="res://graph_editor/SamplePlayer.tscn" id="2_l8g2y"]
+[ext_resource type="PackedScene" uid="uid://b85hs6lw12tjj" path="res://graph_editor/Random.tscn" id="3_l8g2y"]
+[ext_resource type="PackedScene" uid="uid://cqrre8omr7t57" path="res://graph_editor/Delay.tscn" id="4_dhl5a"]
 
 [node name="NodePlaceMenu" type="VBoxContainer" unique_id=1710002632]
 anchors_preset = -1
