@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://dswcfcfes43jt" path="res://addons/sound_graph/graph_editor/RandomNode.gd" id="1_15g7e"]
 
 [node name="Random" type="GraphNode" unique_id=186926108]
-anchors_preset = -1
-anchor_right = 0.09375
-anchor_bottom = 0.20987654
-offset_right = -99.0
-offset_bottom = -81.0
+offset_right = 108.0
+offset_bottom = 136.0
 title = "Random"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -37,7 +34,6 @@ slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("1_15g7e")
-metadata/_edit_use_anchors_ = true
 
 [node name="Add" type="Button" parent="." unique_id=1021759487]
 layout_mode = 2

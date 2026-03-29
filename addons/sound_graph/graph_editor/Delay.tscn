@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://cw8mnqri85o84" path="res://addons/sound_graph/graph_editor/DelayNode.gd" id="1_rugon"]
 
 [node name="Delay" type="GraphNode" unique_id=186926108 node_paths=PackedStringArray("timer", "spinbox")]
-anchors_preset = -1
-anchor_right = 0.1467014
-anchor_bottom = 0.13271604
-offset_right = -96.0
-offset_bottom = -16.0
+offset_right = 169.0
+offset_bottom = 86.0
 title = "Delay"
 slot/0/left_enabled = true
 slot/0/left_type = 0
@@ -21,7 +18,6 @@ slot/0/draw_stylebox = true
 script = ExtResource("1_rugon")
 timer = NodePath("Timer")
 spinbox = NodePath("HBox/SpinBox")
-metadata/_edit_use_anchors_ = true
 
 [node name="HBox" type="HBoxContainer" parent="." unique_id=651101947]
 layout_mode = 2

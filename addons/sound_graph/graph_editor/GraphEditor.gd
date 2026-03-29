@@ -10,13 +10,9 @@ var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
 var graph_resource : SoundGraph = SoundGraph.new()
 
-func _ready():
-	print('loaded!')
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_released("ui_accept"):
-		for node : AudioNode in output_connections:
-			node.execute()
+func play_graph() -> void:
+	for node : AudioNode in output_connections:
+		node.execute()
 
 func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> bool:
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)

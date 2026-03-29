@@ -3,12 +3,8 @@
 [ext_resource type="Script" uid="uid://ccj52dbwu1olg" path="res://addons/sound_graph/graph_editor/SamplePlayerNode.gd" id="1_ye2mf"]
 
 [node name="SamplePlayer" type="GraphNode" unique_id=1189104632 node_paths=PackedStringArray("sample_button", "file_dialog", "play_button", "pitch_min_input", "pitch_max_input", "vol_min_input", "vol_max_input")]
-anchors_preset = -1
-anchor_right = 0.2612847
-anchor_bottom = 0.2978395
-offset_bottom = 1.5258789e-05
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 301.0
+offset_bottom = 193.0
 mouse_filter = 1
 title = "SamplePlayer"
 slot/0/left_enabled = false
@@ -28,7 +24,6 @@ pitch_min_input = NodePath("Menu/Pitch/PitchFrom")
 pitch_max_input = NodePath("Menu/Pitch/PitchTo")
 vol_min_input = NodePath("Menu/Vol/VolFrom")
 vol_max_input = NodePath("Menu/Vol/VolTo")
-metadata/_edit_use_anchors_ = true
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=162873711]
 oversampling_override = 1.0
