@@ -6,3 +6,7 @@ class_name GraphPlayer extends Node
 		graph = g
 		for res : PlayerResource in graph.graph:
 			res.root_node = root_node
+
+func play():
+	for res : PlayerResource in graph.graph:
+		res.execute()

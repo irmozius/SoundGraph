@@ -2,6 +2,7 @@ class_name Graph extends GraphEdit
 
 @export var node_place_menu_scene : PackedScene
 @export var output_node : OutputNode
+@export var graph_player : GraphPlayer
 
 var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
@@ -9,8 +10,8 @@ var graph_resource : SoundGraph = SoundGraph.new()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("ui_accept"):
-		for resource : PlayerResource in graph_resource.graph:
-			resource.execute()
+		graph_player.graph = graph_resource
+		graph_player.play()
 
 func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> bool:
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)

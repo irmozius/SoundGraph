@@ -1,10 +1,10 @@
 class_name SamplePlayer extends PlayerResource
 
 var sample : AudioStream
-var pitch_min : float
-var pitch_max : float
-var vol_min : float
-var vol_max : float
+var pitch_min : float = 1.0
+var pitch_max : float = 1.0
+var vol_min : float = 0.0
+var vol_max : float = 0.0
 
 func play_sound() -> void:
 	if !sample: return

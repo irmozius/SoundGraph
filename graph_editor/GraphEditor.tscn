@@ -10,7 +10,7 @@
 script = ExtResource("5_8qwio")
 metadata/_custom_type_script = "uid://b8tkjdyab0sv"
 
-[node name="Graph" type="GraphEdit" unique_id=1650061467 node_paths=PackedStringArray("output_node")]
+[node name="Graph" type="GraphEdit" unique_id=1650061467 node_paths=PackedStringArray("output_node", "graph_player")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,6 +23,7 @@ type_names = {
 script = ExtResource("1_h47dt")
 node_place_menu_scene = ExtResource("2_8qwio")
 output_node = NodePath("Output")
+graph_player = NodePath("GraphPlayer")
 
 [node name="Output" type="GraphNode" parent="." unique_id=1581384518]
 layout_mode = 1
@@ -52,8 +53,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GraphPlayer" type="Node" parent="." unique_id=1831881814]
+[node name="GraphPlayer" type="Node" parent="." unique_id=1831881814 node_paths=PackedStringArray("root_node")]
 script = ExtResource("4_2bkcl")
+root_node = NodePath("..")
 graph = SubResource("Resource_iqmtu")
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
