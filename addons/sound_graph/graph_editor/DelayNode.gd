@@ -1,3 +1,4 @@
+@tool
 class_name DelayNode extends AudioNode
 
 @export var timer : Timer

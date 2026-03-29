@@ -1,17 +1,22 @@
+
+@tool
 class_name Graph extends GraphEdit
 
 @export var node_place_menu_scene : PackedScene
-@export var output_node : OutputNode
-@export var graph_player : GraphPlayer
+@onready var output_node : OutputNode = get_node("Output")
+
 
 var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
 var graph_resource : SoundGraph = SoundGraph.new()
 
+func _ready():
+	print('loaded!')
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("ui_accept"):
-		graph_player.graph = graph_resource
-		graph_player.play()
+		for node : AudioNode in output_connections:
+			node.execute()
 
 func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> bool:
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)
@@ -22,12 +27,12 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 			#t_node.resource.descendants[to_port] = f_node.resource
 		connect_node(from_node, from_port, to_node, to_port)
 		f_node.connected_to.append(t_node)
-		t_node.connected_by.append(f_node)
 		match get_node_title(str(to_node)):
 			"Output":
 				output_connections.append(f_node)
 				graph_resource.add_resource(f_node.resource, self)
 			_:
+				t_node.connected_by.append(f_node)
 				f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
 				f_node.resource.root_node = self
 				set_descendants(to_node)
@@ -66,12 +71,12 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 	var t_node : AudioNode = get_node(str(to_node))
 	
 	f_node.connected_to.erase(t_node)
-	t_node.connected_by.erase(f_node)
 	match get_node_title(str(to_node)):
 		"Output":
 			output_connections.erase(f_node)
 			graph_resource.graph.erase(f_node.resource)
 		_:
+			t_node.connected_by.erase(f_node)
 			t_node.resource.descendants.erase(f_node.resource)
 
 func _on_gui_input(event: InputEvent) -> void:

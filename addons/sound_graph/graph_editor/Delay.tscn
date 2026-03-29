@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqrre8omr7t57"]
 
-[ext_resource type="Script" uid="uid://cw8mnqri85o84" path="res://graph_editor/DelayNode.gd" id="1_rugon"]
+[ext_resource type="Script" uid="uid://cw8mnqri85o84" path="res://addons/sound_graph/graph_editor/DelayNode.gd" id="1_rugon"]
 
 [node name="Delay" type="GraphNode" unique_id=186926108 node_paths=PackedStringArray("timer", "spinbox")]
 anchors_preset = -1

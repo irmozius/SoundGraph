@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vkwwrhhth385"]
 
-[ext_resource type="Script" uid="uid://ccj52dbwu1olg" path="res://graph_editor/SamplePlayerNode.gd" id="1_ye2mf"]
+[ext_resource type="Script" uid="uid://ccj52dbwu1olg" path="res://addons/sound_graph/graph_editor/SamplePlayerNode.gd" id="1_ye2mf"]
 
 [node name="SamplePlayer" type="GraphNode" unique_id=1189104632 node_paths=PackedStringArray("sample_button", "file_dialog", "play_button", "pitch_min_input", "pitch_max_input", "vol_min_input", "vol_max_input")]
 anchors_preset = -1

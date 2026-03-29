@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b4ddylxcesvgx"]
+
+[ext_resource type="PackedScene" uid="uid://cujej7aecjsk4" path="res://addons/sound_graph/graph_editor/GraphEditor.tscn" id="1_hv4cq"]
+
+[node name="main_panel" type="PanelContainer" unique_id=1338956025]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Graph" parent="." unique_id=1650061467 instance=ExtResource("1_hv4cq")]
+layout_mode = 2

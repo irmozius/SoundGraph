@@ -1,3 +1,4 @@
+@tool
 class_name NodePlaceMenu extends VBoxContainer
 
 @export var node_list : Array[PackedScene]

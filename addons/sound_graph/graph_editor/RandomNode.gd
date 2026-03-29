@@ -1,3 +1,4 @@
+@tool
 class_name RandomNode extends AudioNode
 
 func _ready() -> void:

@@ -1,3 +1,4 @@
+@tool
 class_name SamplePlayerNode extends AudioNode
 
 @export var sample_button : Button

@@ -1,3 +1,4 @@
+@tool
 class_name AudioNode extends GraphNode
 
 signal deleted

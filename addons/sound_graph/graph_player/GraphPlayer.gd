@@ -1,3 +1,4 @@
+@tool
 class_name GraphPlayer extends Node
 
 @export var root_node : Node
