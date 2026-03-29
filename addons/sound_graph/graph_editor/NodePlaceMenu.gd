@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_button_pressed(node : PackedScene):
 	var new_node : GraphNode = node.instantiate()
-	var pos : Vector2 = (global_position + graph.scroll_offset) / graph.zoom
+	var pos : Vector2 = (position + graph.scroll_offset) / graph.zoom
 	graph.add_child(new_node)
 	new_node.position_offset = pos
 	graph.node_place_menu = null
