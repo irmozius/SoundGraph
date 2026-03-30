@@ -21,6 +21,7 @@ func play_graph() -> void:
 		
 func clear_graph():
 	graph_resource = SoundGraph.new()
+	output_connections.clear()
 	clear_connections()
 	for node in get_children():
 		if node is AudioNode:

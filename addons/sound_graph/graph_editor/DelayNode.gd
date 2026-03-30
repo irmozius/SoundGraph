@@ -12,3 +12,6 @@ func _on_sound_deleted(sound : AudioNode):
 
 func _on_spin_box_value_changed(value: float) -> void:
 	resource.delay_time = value
+
+func load_values():
+	spinbox.value = resource.delay_time
