@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cxawudpw0ha3n"]
 
-[ext_resource type="Script" uid="uid://bk5qnlvfa6w3d" path="res://addons/sound_graph/graph_editor/MixNode.gd" id="1_wpoeh"]
+[ext_resource type="Script" uid="uid://bk5qnlvfa6w3d" path="res://addons/sound_graph/graph_editor/PolyNode.gd" id="1_wpoeh"]
 
-[node name="Mix" type="GraphNode" unique_id=186926108]
+[node name="Poly" type="GraphNode" unique_id=186926108]
 offset_right = 108.0
 offset_bottom = 136.0
-title = "Mix"
+title = "Poly"
 slot/0/left_enabled = false
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 1, 1, 1)

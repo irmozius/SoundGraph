@@ -7,10 +7,8 @@ class_name DelayNode extends AudioNode
 func _ready() -> void:
 	resource = Delay.new()
 	resource.node = self
-	
-func _on_sound_deleted(sound : AudioNode):
-	connected_by.erase(sound)
 
+	
 func _on_spin_box_value_changed(value: float) -> void:
 	resource.delay_time = value
 

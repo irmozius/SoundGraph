@@ -1,5 +1,5 @@
 @tool
-class_name Mix extends PlayerResource
+class_name Poly extends PlayerResource
 
 func execute():
 	if node:
@@ -14,4 +14,4 @@ func execute():
 				finished.emit())
 
 func get_type() -> String:
-	return "Mix"
+	return "Poly"

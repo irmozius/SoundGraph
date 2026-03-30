@@ -1,12 +1,9 @@
 @tool
-class_name MixNode extends AudioNode
+class_name PolyNode extends AudioNode
 
 func _ready() -> void:
-	resource = Mix.new()
+	resource = Poly.new()
 	resource.node = self
-
-func _on_sound_deleted(sound : AudioNode):
-	connected_by.erase(sound)
 
 func _on_add_pressed() -> void:
 	add_slot()

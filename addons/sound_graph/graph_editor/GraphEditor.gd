@@ -10,7 +10,7 @@ var RES_NODE_MAP : Dictionary[String, PackedScene] = {
 	"Random": load("uid://b85hs6lw12tjj"),
 	"Delay": load("uid://cqrre8omr7t57"),
 	"Sequence": load("uid://e7t050olymjx"),
-	"Mix": load("uid://cxawudpw0ha3n")
+	"Poly": load("uid://cxawudpw0ha3n")
 }
 
 var node_place_menu : NodePlaceMenu
@@ -63,14 +63,16 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 				output_connections.append(f_node)
 				graph_resource.add_resource(f_node.resource, self)
 			_:
-				t_node.connected_by.append(f_node)
-				f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
+				#t_node.connected_by.append(f_node)
+				if !f_node.deleted.is_connected(t_node._on_sound_deleted):
+					f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
 				f_node.resource.root_node = self
 				set_descendants(to_node)
 
 func set_descendants(node_name : String):
 	var con_list : Array[Dictionary] = get_connection_list_from_node(node_name)
 	var res_list : Array[PlayerResource]
+	var node_list : Array[AudioNode]
 	con_list.sort_custom(func(a,b):
 		if a.to_port < b.to_port:
 			return true
@@ -78,9 +80,15 @@ func set_descendants(node_name : String):
 	for i in con_list:
 		if i.to_node != node_name:
 			con_list.erase(i)
+		if get_node(str(i.from_node)).is_queued_for_deletion():
+			print('not valid')
+			con_list.erase(i)
 	for i in con_list:
 		res_list.append(get_resource(i.from_node))
+		node_list.append(get_node(str(i.from_node)))
+	print(res_list)
 	get_resource(node_name).descendants = res_list
+	get_node(node_name).connected_by = node_list
 	
 func get_node_title(node_name : String) -> String:
 	var node : AudioNode = get_node(node_name)
@@ -104,8 +112,11 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 			output_connections.erase(f_node)
 			graph_resource.graph.erase(f_node.resource)
 		_:
-			t_node.connected_by.erase(f_node)
-			t_node.resource.descendants.erase(f_node.resource)
+			set_descendants(to_node)
+			#t_node.connected_by.erase(f_node)
+			#t_node.resource.descendants.erase(f_node.resource)
+			if !(f_node in t_node.connected_by):
+				f_node.deleted.disconnect(t_node._on_sound_deleted)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -118,13 +129,9 @@ func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
 		if str(node_name) == "Output": continue
 		var node : AudioNode = get_node(str(node_name))
 		output_connections.erase(node)
+
 		node.emit_signal("deleted")
 		node.queue_free()
-
-#func create_instruction_list() -> void:
-	#graph_resource = SoundGraph.new()
-	#for node : AudioNode in output_connections:
-		#
 
 func _on_popup_request(at_position: Vector2) -> void:
 	node_place_menu = node_place_menu_scene.instantiate()

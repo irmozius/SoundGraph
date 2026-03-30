@@ -7,7 +7,10 @@ var root_node : Node:
 		for res in descendants:
 			res.root_node = n
 
-@export var descendants : Array[PlayerResource] = []
+@export var descendants : Array[PlayerResource] = []:
+	set(d):
+		descendants = d
+		#print(descendants)
 @export var graph_pos : Vector2
 var node : AudioNode
 
