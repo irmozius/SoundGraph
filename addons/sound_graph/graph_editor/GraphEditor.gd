@@ -80,13 +80,9 @@ func set_descendants(node_name : String):
 	for i in con_list:
 		if i.to_node != node_name:
 			con_list.erase(i)
-		if get_node(str(i.from_node)).is_queued_for_deletion():
-			print('not valid')
-			con_list.erase(i)
 	for i in con_list:
 		res_list.append(get_resource(i.from_node))
 		node_list.append(get_node(str(i.from_node)))
-	print(res_list)
 	get_resource(node_name).descendants = res_list
 	get_node(node_name).connected_by = node_list
 	
@@ -97,6 +93,12 @@ func get_node_title(node_name : String) -> String:
 func get_resource(node_name : String) -> PlayerResource:
 	var node : AudioNode = get_node(node_name)
 	return node.resource
+
+func spawn_node_menu(pos : Vector2):
+	node_place_menu = node_place_menu_scene.instantiate()
+	node_place_menu.graph = self
+	add_child(node_place_menu)
+	node_place_menu.position = pos
 
 func _on_connection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	add_connection(from_node, from_port, to_node, to_port)
@@ -134,7 +136,8 @@ func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
 		node.queue_free()
 
 func _on_popup_request(at_position: Vector2) -> void:
-	node_place_menu = node_place_menu_scene.instantiate()
-	node_place_menu.graph = self
-	add_child(node_place_menu)
-	node_place_menu.position = at_position
+	spawn_node_menu(at_position)
+
+func _on_connection_to_empty(from_node: StringName, from_port: int, release_position: Vector2) -> void:
+	spawn_node_menu(release_position)
+	

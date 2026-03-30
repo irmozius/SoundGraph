@@ -6,11 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bw1ruipyqmong" path="res://audio/Pistol Shot 9mm Semi-Auto 04.wav" id="4_y6c5c"]
 [ext_resource type="Script" uid="uid://b5upviblojdot" path="res://addons/sound_graph/graph_player/Delay.gd" id="5_t1c6q"]
 [ext_resource type="Script" uid="uid://c1wbjx56fd6e6" path="res://addons/sound_graph/graph_player/Sequence.gd" id="6_iaffq"]
-[ext_resource type="AudioStream" uid="uid://cub8h7gxnptw4" path="res://audio/slash-001.wav" id="6_t1c6q"]
 [ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="7_dkvon"]
-[ext_resource type="AudioStream" uid="uid://db8vsj20yue64" path="res://audio/slash-002.wav" id="7_iaffq"]
-[ext_resource type="AudioStream" uid="uid://dxeerhm0pjbjq" path="res://audio/slash-003.wav" id="8_dkvon"]
-[ext_resource type="Script" uid="uid://jiw2k8snu140" path="res://addons/sound_graph/graph_player/Random.gd" id="9_684lf"]
 
 [sub_resource type="Resource" id="Resource_684lf"]
 script = ExtResource("3_juir6")
@@ -28,35 +24,9 @@ delay_time = 0.36
 descendants = Array[ExtResource("1_nn7ha")]([SubResource("Resource_p0vra")])
 graph_pos = Vector2(60, 180)
 
-[sub_resource type="Resource" id="Resource_vmgem"]
-script = ExtResource("3_juir6")
-sample = ExtResource("6_t1c6q")
-pitch_min = 0.96
-vol_min = -0.7999999999999972
-graph_pos = Vector2(-460, 420)
-
-[sub_resource type="Resource" id="Resource_d68sk"]
-script = ExtResource("3_juir6")
-sample = ExtResource("7_iaffq")
-pitch_min = 0.9400000000000001
-vol_min = -2.0
-graph_pos = Vector2(-500, 620)
-
-[sub_resource type="Resource" id="Resource_taih8"]
-script = ExtResource("3_juir6")
-sample = ExtResource("8_dkvon")
-pitch_min = 0.9
-vol_min = -1.4000000000000057
-graph_pos = Vector2(-460.8965, 836.3092)
-
-[sub_resource type="Resource" id="Resource_080p2"]
-script = ExtResource("9_684lf")
-descendants = Array[ExtResource("1_nn7ha")]([SubResource("Resource_vmgem"), SubResource("Resource_d68sk"), SubResource("Resource_taih8")])
-graph_pos = Vector2(80, 380)
-
 [sub_resource type="Resource" id="Resource_3u8yq"]
 script = ExtResource("6_iaffq")
-descendants = Array[ExtResource("1_nn7ha")]([SubResource("Resource_684lf"), SubResource("Resource_p3vep"), SubResource("Resource_080p2")])
+descendants = Array[ExtResource("1_nn7ha")]([SubResource("Resource_684lf"), SubResource("Resource_p3vep")])
 graph_pos = Vector2(320, 160)
 
 [resource]
