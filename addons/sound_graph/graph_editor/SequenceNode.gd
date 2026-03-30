@@ -1,9 +1,8 @@
 @tool
-class_name SequenceNode extends AudioNode
+class_name RandomNode extends AudioNode
 
 func _ready() -> void:
-	min_index = 1
-	resource = Random.new()
+	resource = Sequence.new()
 
 func _on_sound_deleted(sound : AudioNode):
 	connected_by.erase(sound)

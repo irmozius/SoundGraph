@@ -13,7 +13,9 @@ func play_sound() -> void:
 	var player : AudioStreamPlayer = AudioStreamPlayer.new()
 	root_node.add_child(player)
 	player.stream = sample
-	player.finished.connect(func(): player.queue_free())
+	player.finished.connect(func():
+		player.queue_free()
+		finished.emit())
 	_set_pitch_and_volume(player)
 	player.play()
 

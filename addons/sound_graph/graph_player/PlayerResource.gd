@@ -10,6 +10,8 @@ var root_node : Node:
 @export var descendants : Array[PlayerResource] = []
 @export var graph_pos : Vector2
 
+signal finished
+
 func execute():
 	pass
 
