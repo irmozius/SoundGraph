@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://box7uugqfeq8j"]
+
+[ext_resource type="PackedScene" uid="uid://e2ky3lqsjjai" path="res://addons/sound_graph/graph_player/GraphPlayer.tscn" id="1_8n7uv"]
+
+[node name="Node" type="Node" unique_id=1305812315]
+
+[node name="GraphPlayer" parent="." unique_id=26029100 node_paths=PackedStringArray("root_node") instance=ExtResource("1_8n7uv")]
+root_node = NodePath("..")

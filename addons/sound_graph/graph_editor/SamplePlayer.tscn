@@ -28,6 +28,7 @@ vol_max_input = NodePath("Menu/Vol/VolTo")
 [node name="FileDialog" type="FileDialog" parent="." unique_id=162873711]
 oversampling_override = 1.0
 title = "Open a File"
+initial_position = 4
 ok_button_text = "Load"
 dialog_hide_on_ok = true
 file_mode = 0

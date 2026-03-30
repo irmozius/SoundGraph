@@ -2,6 +2,7 @@
 class_name RandomNode extends AudioNode
 
 func _ready() -> void:
+	min_index = 1
 	resource = Random.new()
 
 func _on_sound_deleted(sound : AudioNode):

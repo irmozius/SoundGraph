@@ -3,8 +3,13 @@
 class_name Graph extends GraphEdit
 
 @export var node_place_menu_scene : PackedScene
-@onready var output_node : OutputNode = get_node("Output")
+@onready var output_node : OutputNode = $%Output
 
+var RES_NODE_MAP : Dictionary[String, PackedScene] = {
+	"SamplePlayer": load("uid://vkwwrhhth385"),
+	"Random": load("uid://b85hs6lw12tjj"),
+	"Delay": load("uid://cqrre8omr7t57")
+}
 
 var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
@@ -13,8 +18,34 @@ var graph_resource : SoundGraph = SoundGraph.new()
 func play_graph() -> void:
 	for node : AudioNode in output_connections:
 		node.execute()
+		
+func clear_graph():
+	graph_resource = SoundGraph.new()
+	clear_connections()
+	for node in get_children():
+		if node is AudioNode:
+			if !(node is OutputNode):
+				node.queue_free()
 
-func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> bool:
+func load_graph(graph : SoundGraph):
+	clear_graph()
+	output_node.position_offset = graph.output_position
+	graph_resource = SoundGraph.new()
+	for i : PlayerResource in graph.graph:
+		var node : AudioNode = load_node_from_resource(i)
+		add_connection(node.name, 0, output_node.name, 0)
+
+func load_node_from_resource(resource: PlayerResource) -> AudioNode:
+	var node : AudioNode = RES_NODE_MAP[resource.get_type()].instantiate()
+	add_child(node, true)
+	node.resource = resource
+	node.load_values()
+	node.position_offset = resource.graph_pos
+	node.spawn_descendants()
+	return node
+
+func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int):
+	print("connecting {0}'s {1} port to {2}'s {3} port".format([from_node, from_port, to_node, to_port]))
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)
 	if !connected:
 		var f_node : AudioNode = get_node(str(from_node))
@@ -32,8 +63,6 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 				f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
 				f_node.resource.root_node = self
 				set_descendants(to_node)
-		return true
-	else: return false
 
 func set_descendants(node_name : String):
 	var con_list : Array[Dictionary] = get_connection_list_from_node(node_name)
@@ -47,7 +76,6 @@ func set_descendants(node_name : String):
 			con_list.erase(i)
 	for i in con_list:
 		res_list.append(get_resource(i.from_node))
-	print(res_list)
 	get_resource(node_name).descendants = res_list
 	
 func get_node_title(node_name : String) -> String:

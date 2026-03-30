@@ -14,6 +14,13 @@ var sample : AudioStream = null
 func _ready() -> void:
 	resource = SamplePlayer.new()
 
+func load_values():
+	sample_button.text = resource.sample.resource_path.trim_prefix("res://")
+	pitch_min_input.value = resource.pitch_min
+	pitch_max_input.value = resource.pitch_max
+	vol_min_input.value = resource.vol_min
+	vol_max_input.value = resource.vol_max
+
 func _on_choose_sample_pressed() -> void:
 	file_dialog.show()
 

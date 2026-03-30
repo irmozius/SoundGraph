@@ -1,6 +1,8 @@
 @tool
 class_name GraphPlayer extends Node
 
+@export_tool_button("Test Sound", "AudioStreamPlayer") var test_button : Callable = play
+
 @export var root_node : Node
 @export var graph : SoundGraph:
 	set(g):
