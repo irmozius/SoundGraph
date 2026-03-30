@@ -1,8 +1,8 @@
 @tool
-class_name SequenceNode extends AudioNode
+class_name MixNode extends AudioNode
 
 func _ready() -> void:
-	resource = Random.new()
+	resource = Mix.new()
 	resource.node = self
 
 func _on_sound_deleted(sound : AudioNode):
@@ -18,7 +18,6 @@ func add_slot():
 	new_label.text = str(new_index)
 	set_slot_enabled_left(new_index, true)
 	
-
 func load_values():
 	var extra_slots := resource.descendants.size() - 2
 	for i in extra_slots:

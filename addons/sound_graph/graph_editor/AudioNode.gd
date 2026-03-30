@@ -7,7 +7,6 @@ signal deleted
 var connected_by : Array[AudioNode]
 var connected_to : Array[AudioNode]
 var resource : PlayerResource
-var min_index : int = 0
 
 func execute():
 	resource.execute()
@@ -29,3 +28,8 @@ func spawn_descendants():
 
 func load_values():
 	pass
+	
+func pulse():
+	var t : Tween = create_tween()
+	modulate = Color.WHITE * 1.8
+	t.tween_property(self, "modulate", Color.WHITE, 0.1)

@@ -8,7 +8,9 @@ class_name Graph extends GraphEdit
 var RES_NODE_MAP : Dictionary[String, PackedScene] = {
 	"SamplePlayer": load("uid://vkwwrhhth385"),
 	"Random": load("uid://b85hs6lw12tjj"),
-	"Delay": load("uid://cqrre8omr7t57")
+	"Delay": load("uid://cqrre8omr7t57"),
+	"Sequence": load("uid://e7t050olymjx"),
+	"Mix": load("uid://cxawudpw0ha3n")
 }
 
 var node_place_menu : NodePlaceMenu
@@ -40,6 +42,7 @@ func load_node_from_resource(resource: PlayerResource) -> AudioNode:
 	var node : AudioNode = RES_NODE_MAP[resource.get_type()].instantiate()
 	add_child(node, true)
 	node.resource = resource
+	resource.node = node
 	node.load_values()
 	node.position_offset = resource.graph_pos
 	node.spawn_descendants()

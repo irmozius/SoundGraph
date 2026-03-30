@@ -24,6 +24,8 @@ func _set_pitch_and_volume(player : AudioStreamPlayer):
 	player.volume_db = randf_range(vol_min, vol_max)
 
 func execute():
+	if node:
+		node.pulse()
 	play_sound()
 
 func get_type() -> String:

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://e2ky3lqsjjai" path="res://addons/sound_graph/graph_player/GraphPlayer.tscn" id="1_8n7uv"]
 [ext_resource type="Script" uid="uid://bcujyapibt002" path="res://demo_scene.gd" id="1_ayuu8"]
-[ext_resource type="Resource" path="res://seqtest.tres" id="3_ayuu8"]
+[ext_resource type="Resource" uid="uid://0qjiannyxghn" path="res://mixtest.tres" id="3_ayuu8"]
 
 [node name="Node" type="Control" unique_id=1373465742]
 layout_mode = 3

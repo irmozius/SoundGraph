@@ -13,6 +13,7 @@ var sample : AudioStream = null
 
 func _ready() -> void:
 	resource = SamplePlayer.new()
+	resource.node = self
 
 func load_values():
 	sample_button.text = resource.sample.resource_path.trim_prefix("res://")

@@ -9,6 +9,7 @@ var root_node : Node:
 
 @export var descendants : Array[PlayerResource] = []
 @export var graph_pos : Vector2
+var node : AudioNode
 
 signal finished
 

@@ -2,6 +2,8 @@
 class_name Random extends PlayerResource
 
 func execute():
+	if node:
+		node.pulse()
 	if !descendants: return
 	var choice : PlayerResource = descendants.pick_random()
 	choice.execute()

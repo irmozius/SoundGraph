@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="SoundGraph" format=3 uid="uid://0qjiannyxghn"]
+
+[ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="1_leowo"]
+[ext_resource type="AudioStream" uid="uid://bh5h65e1hfc0i" path="res://audio/Pistol Shot 9mm Semi-Auto 03.wav" id="2_aidd2"]
+[ext_resource type="Script" uid="uid://dmckws1olg7em" path="res://addons/sound_graph/graph_player/SamplePlayer.gd" id="3_5l4uu"]
+[ext_resource type="AudioStream" uid="uid://cub8h7gxnptw4" path="res://audio/slash-001.wav" id="4_lkan2"]
+[ext_resource type="AudioStream" uid="uid://db8vsj20yue64" path="res://audio/slash-002.wav" id="5_t3uge"]
+[ext_resource type="Script" uid="uid://ba3mdwfxmcmi6" path="res://addons/sound_graph/graph_player/Mix.gd" id="6_afrtd"]
+[ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="7_hjju0"]
+
+[sub_resource type="Resource" id="Resource_qx010"]
+script = ExtResource("3_5l4uu")
+sample = ExtResource("2_aidd2")
+graph_pos = Vector2(-280, 120)
+
+[sub_resource type="Resource" id="Resource_suspg"]
+script = ExtResource("3_5l4uu")
+sample = ExtResource("4_lkan2")
+graph_pos = Vector2(-280, 340)
+
+[sub_resource type="Resource" id="Resource_w1oxu"]
+script = ExtResource("3_5l4uu")
+sample = ExtResource("5_t3uge")
+graph_pos = Vector2(-240, 580)
+
+[sub_resource type="Resource" id="Resource_qsm3d"]
+script = ExtResource("6_afrtd")
+descendants = Array[ExtResource("1_leowo")]([SubResource("Resource_qx010"), SubResource("Resource_suspg"), SubResource("Resource_w1oxu")])
+graph_pos = Vector2(300, 240)
+
+[resource]
+script = ExtResource("7_hjju0")
+graph = Array[ExtResource("1_leowo")]([SubResource("Resource_qsm3d")])
+output_position = Vector2(525, 243)
