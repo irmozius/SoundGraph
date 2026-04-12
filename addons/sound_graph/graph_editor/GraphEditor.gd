@@ -39,7 +39,7 @@ func load_graph(graph : SoundGraph):
 	clear_graph()
 	output_node.position_offset = graph.output_position
 	graph_resource = SoundGraph.new()
-	graph_resource.resource_local_to_scene = true
+	#graph_resource.resource_local_to_scene = true
 	for i : PlayerResource in graph.graph:
 		var node : AudioNode = load_node_from_resource(i)
 		add_connection(node.name, 0, output_node.name, 0)
@@ -74,8 +74,8 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 					print(graph_resource.graph), CONNECT_ONE_SHOT)
 			_:
 				#t_node.connected_by.append(f_node)
-				if !f_node.deleted.is_connected(t_node._on_sound_deleted):
-					f_node.deleted.connect(t_node._on_sound_deleted.bind(f_node))
+				f_node.deleted.connect(func():
+					set_descendants(t_node.name), CONNECT_ONE_SHOT)
 				f_node.resource.root_node = self
 				set_descendants(to_node)
 
