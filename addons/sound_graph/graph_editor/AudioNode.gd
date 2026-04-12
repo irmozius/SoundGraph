@@ -1,4 +1,5 @@
 @tool
+@abstract
 class_name AudioNode extends GraphNode
 
 signal deleted
@@ -39,8 +40,7 @@ func is_descendant_already_spawned(dres : PlayerResource) -> AudioNode:
 			return i
 	return null
 
-func load_values():
-	pass
+@abstract func load_values()
 	
 func pulse():
 	var t : Tween = create_tween()

@@ -13,13 +13,3 @@ func execute():
 
 func get_type() -> String:
 	return "Delay"
-
-func return_copy():
-	var array : Array[PlayerResource] = []
-	var copy : Delay = Delay.new()
-	copy.delay_time = delay_time
-	copy.graph_pos = graph_pos
-	for i : PlayerResource in descendants:
-		array.append(i.return_copy())
-	copy.descendants = array
-	return copy

@@ -19,8 +19,6 @@ signal finished
 
 @abstract func execute()
 
-@abstract func return_copy()
-
 @abstract func get_type()
 
 func _to_string() -> String:

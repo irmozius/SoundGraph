@@ -13,13 +13,3 @@ func _to_string() -> String:
 	for i : PlayerResource in graph:
 		str += i._to_string()
 	return str
-
-func return_copy() -> SoundGraph:
-	var new_graph : Array[PlayerResource] = []
-	var copy : SoundGraph = SoundGraph.new()
-	copy.resource_local_to_scene = true
-	copy.output_position = output_position
-	for i : PlayerResource in graph:
-		new_graph.append(i.return_copy())
-	copy.graph = new_graph
-	return copy

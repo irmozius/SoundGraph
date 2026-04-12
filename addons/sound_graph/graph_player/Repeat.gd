@@ -15,13 +15,3 @@ func execute():
 
 func get_type() -> String:
 	return "Repeat"
-
-func return_copy():
-	var array : Array[PlayerResource] = []
-	var copy : Repeat = Repeat.new()
-	copy.repetitions = repetitions
-	copy.graph_pos = graph_pos
-	for i : PlayerResource in descendants:
-		array.append(i.return_copy())
-	copy.descendants = array
-	return copy

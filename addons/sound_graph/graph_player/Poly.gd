@@ -19,12 +19,3 @@ func descendant_callback():
 
 func get_type() -> String:
 	return "Poly"
-
-func return_copy():
-	var array : Array[PlayerResource] = []
-	var copy : Poly = Poly.new()
-	copy.graph_pos = graph_pos
-	for i : PlayerResource in descendants:
-		array.append(i.return_copy())
-	copy.descendants = array
-	return copy
