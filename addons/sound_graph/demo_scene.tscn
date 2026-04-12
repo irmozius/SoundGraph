@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://box7uugqfeq8j"]
 
 [ext_resource type="PackedScene" uid="uid://e2ky3lqsjjai" path="res://addons/sound_graph/graph_player/GraphPlayer.tscn" id="1_8n7uv"]
-[ext_resource type="Script" uid="uid://bcujyapibt002" path="res://demo_scene.gd" id="1_ayuu8"]
+[ext_resource type="Script" uid="uid://bcujyapibt002" path="res://addons/sound_graph/demo_scene.gd" id="1_ayuu8"]
 [ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="3_sxiuf"]
 [ext_resource type="AudioStream" uid="uid://bh5h65e1hfc0i" path="res://audio/Pistol Shot 9mm Semi-Auto 03.wav" id="4_yg6rb"]
 [ext_resource type="Script" uid="uid://dmckws1olg7em" path="res://addons/sound_graph/graph_player/SamplePlayer.gd" id="5_6qj3o"]
