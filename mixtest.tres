@@ -8,27 +8,27 @@
 [ext_resource type="Script" uid="uid://ba3mdwfxmcmi6" path="res://addons/sound_graph/graph_player/Poly.gd" id="6_afrtd"]
 [ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="7_hjju0"]
 
-[sub_resource type="Resource" id="Resource_qx010"]
+[sub_resource type="Resource" id="Resource_leowo"]
 script = ExtResource("3_5l4uu")
 sample = ExtResource("2_aidd2")
 graph_pos = Vector2(-280, 120)
 
-[sub_resource type="Resource" id="Resource_suspg"]
+[sub_resource type="Resource" id="Resource_aidd2"]
 script = ExtResource("3_5l4uu")
 sample = ExtResource("4_lkan2")
 graph_pos = Vector2(-280, 340)
 
-[sub_resource type="Resource" id="Resource_w1oxu"]
+[sub_resource type="Resource" id="Resource_5l4uu"]
 script = ExtResource("3_5l4uu")
 sample = ExtResource("5_t3uge")
 graph_pos = Vector2(-240, 580)
 
-[sub_resource type="Resource" id="Resource_qsm3d"]
+[sub_resource type="Resource" id="Resource_lkan2"]
 script = ExtResource("6_afrtd")
-descendants = Array[ExtResource("1_leowo")]([SubResource("Resource_qx010"), SubResource("Resource_suspg"), SubResource("Resource_w1oxu")])
+descendants = Array[ExtResource("1_leowo")]([SubResource("Resource_leowo"), SubResource("Resource_aidd2"), SubResource("Resource_5l4uu")])
 graph_pos = Vector2(300, 240)
 
 [resource]
 script = ExtResource("7_hjju0")
-graph = Array[ExtResource("1_leowo")]([SubResource("Resource_qsm3d")])
+graph = Array[ExtResource("1_leowo")]([SubResource("Resource_lkan2")])
 output_position = Vector2(525, 243)

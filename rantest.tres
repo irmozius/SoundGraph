@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SoundGraph" format=3 uid="uid://bhq3b8pky7vuq"]
+
+[ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="1_k645l"]
+[ext_resource type="AudioStream" uid="uid://bmjtcfepk4fgi" path="res://audio/step-001.wav" id="2_cmygh"]
+[ext_resource type="Script" uid="uid://dmckws1olg7em" path="res://addons/sound_graph/graph_player/SamplePlayer.gd" id="3_10tdb"]
+[ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="4_sq0tt"]
+
+[sub_resource type="Resource" id="Resource_rq12q"]
+script = ExtResource("3_10tdb")
+sample = ExtResource("2_cmygh")
+graph_pos = Vector2(80, 240)
+
+[resource]
+script = ExtResource("4_sq0tt")
+graph = Array[ExtResource("1_k645l")]([SubResource("Resource_rq12q")])
+output_position = Vector2(680, 280)

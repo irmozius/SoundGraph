@@ -1,4 +1,5 @@
 @tool
+@abstract
 class_name PlayerResource extends Resource
 
 var root_node : Node:
@@ -16,14 +17,14 @@ var node : AudioNode
 
 signal finished
 
-func execute():
-	pass
+@abstract func execute()
+
+@abstract func return_copy()
+
+@abstract func get_type()
 
 func _to_string() -> String:
 	var str : String = get_type() + "\n"
 	for i in descendants:
 		str += i._to_string()
 	return str
-
-func get_type() -> String:
-	return ""

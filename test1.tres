@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SoundGraph" format=3 uid="uid://dp4qo53ivv5fc"]
+
+[ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="1_7nkh0"]
+[ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="4_arjev"]
+
+[resource]
+script = ExtResource("4_arjev")
+output_position = Vector2(525, 243)

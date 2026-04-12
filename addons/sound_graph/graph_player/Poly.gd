@@ -11,7 +11,16 @@ func execute():
 		i.finished.connect(func():
 			count -= 1
 			if count == 0:
-				finished.emit())
+				finished.emit(), CONNECT_ONE_SHOT)
 
 func get_type() -> String:
 	return "Poly"
+
+func return_copy():
+	var array : Array[PlayerResource] = []
+	var copy : Poly = Poly.new()
+	copy.graph_pos = graph_pos
+	for i : PlayerResource in descendants:
+		array.append(i.return_copy())
+	copy.descendants = array
+	return copy

@@ -15,7 +15,7 @@ func play_sound() -> void:
 	player.stream = sample
 	player.finished.connect(func():
 		player.queue_free()
-		finished.emit())
+		finished.emit(), CONNECT_ONE_SHOT)
 	_set_pitch_and_volume(player)
 	player.play()
 
@@ -30,3 +30,12 @@ func execute():
 
 func get_type() -> String:
 	return "SamplePlayer"
+
+func return_copy() -> SamplePlayer:
+	var copy : SamplePlayer = SamplePlayer.new()
+	copy.sample = sample
+	copy.pitch_min = pitch_min
+	copy.pitch_max = pitch_max
+	copy.vol_min = vol_min
+	copy.graph_pos = graph_pos
+	return copy
