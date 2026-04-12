@@ -10,12 +10,16 @@ var RES_NODE_MAP : Dictionary[String, PackedScene] = {
 	"Random": load("uid://b85hs6lw12tjj"),
 	"Delay": load("uid://cqrre8omr7t57"),
 	"Sequence": load("uid://e7t050olymjx"),
-	"Poly": load("uid://cxawudpw0ha3n")
+	"Poly": load("uid://cxawudpw0ha3n"),
+	"Repeat": load("uid://cyg8tguf7wwxg")
 }
 
 var node_place_menu : NodePlaceMenu
 var output_connections : Array[AudioNode]
 var graph_resource : SoundGraph = SoundGraph.new()
+
+func _ready() -> void:
+	clear_graph()
 
 func play_graph() -> void:
 	for node : AudioNode in output_connections:
@@ -23,6 +27,7 @@ func play_graph() -> void:
 		
 func clear_graph():
 	graph_resource = SoundGraph.new()
+	graph_resource.resource_local_to_scene = true
 	output_connections.clear()
 	clear_connections()
 	for node in get_children():
@@ -34,6 +39,7 @@ func load_graph(graph : SoundGraph):
 	clear_graph()
 	output_node.position_offset = graph.output_position
 	graph_resource = SoundGraph.new()
+	graph_resource.resource_local_to_scene = true
 	for i : PlayerResource in graph.graph:
 		var node : AudioNode = load_node_from_resource(i)
 		add_connection(node.name, 0, output_node.name, 0)
@@ -62,6 +68,10 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 			"Output":
 				output_connections.append(f_node)
 				graph_resource.add_resource(f_node.resource, self)
+				f_node.deleted.connect(func():
+					output_connections.erase(f_node)
+					graph_resource.graph.erase(f_node.resource)
+					print(graph_resource.graph), CONNECT_ONE_SHOT)
 			_:
 				#t_node.connected_by.append(f_node)
 				if !f_node.deleted.is_connected(t_node._on_sound_deleted):

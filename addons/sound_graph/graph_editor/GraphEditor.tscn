@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctj1yf38rsxke" path="res://addons/sound_graph/graph_editor/GraphEditor.gd" id="1_h47dt"]
 [ext_resource type="PackedScene" uid="uid://c2kbjsdkc7kui" path="res://addons/sound_graph/graph_editor/NodePlaceMenu.tscn" id="2_8qwio"]
-[ext_resource type="Script" uid="uid://b56i2no2eqi27" path="res://addons/sound_graph/graph_editor/Output.gd" id="3_iqmtu"]
+[ext_resource type="Script" uid="uid://b56i2no2eqi27" path="res://addons/sound_graph/graph_editor/OutputNode.gd" id="3_iqmtu"]
 
 [node name="Graph" type="GraphEdit" unique_id=1650061467]
 anchors_preset = 15

@@ -19,11 +19,14 @@ func _on_load_pressed() -> void:
 	load_dialog.show()
 
 func _on_save_dialog_file_selected(path: String) -> void:
-	var graph_res : SoundGraph = graph.graph_resource
+	var graph_res : SoundGraph = graph.graph_resource.return_copy()
 	graph_res.output_position = graph.output_node.position_offset
 	graph_res.take_over_path(path)
-	ResourceSaver.save(graph_res.return_copy(), path)
+	print("saving:\n" + str(graph_res.graph))
+	ResourceSaver.save(graph_res, path)
 
 func _on_load_dialog_file_selected(path: String) -> void:
 	var graph_res : SoundGraph = ResourceLoader.load(path, "SoundGraph")
+	var graph_copy : SoundGraph = graph_res.return_copy()
+	print("loading:\n" + str(graph_copy.graph))
 	graph.load_graph(graph_res.return_copy())
