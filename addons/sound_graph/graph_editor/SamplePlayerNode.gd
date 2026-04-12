@@ -14,6 +14,7 @@ var sample : AudioStream = null
 func _ready() -> void:
 	resource = SamplePlayer.new()
 	resource.node = self
+	resource.root_node = get_parent()
 
 func load_values():
 	sample_button.text = resource.sample.resource_path.trim_prefix("res://")
@@ -27,7 +28,9 @@ func _on_choose_sample_pressed() -> void:
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	resource.sample = load(path)
-	sample_button.text = path.trim_prefix("res://")
+	var trimmed_path : String = path.trim_prefix("res://")
+	print("SamplePlayer loaded '" + trimmed_path + "'.")
+	sample_button.text = trimmed_path
 
 func _on_play_pressed() -> void:
 	resource.execute()

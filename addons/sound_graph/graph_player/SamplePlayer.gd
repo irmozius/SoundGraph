@@ -9,7 +9,7 @@ class_name SamplePlayer extends PlayerResource
 
 func play_sound() -> void:
 	if !sample: return
-	print('Playing ', sample)
+	print("Playing '", sample.resource_path.trim_prefix("res://"), "'.")
 	var player : AudioStreamPlayer = AudioStreamPlayer.new()
 	root_node.add_child(player)
 	player.stream = sample

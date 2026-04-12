@@ -30,7 +30,6 @@ func spawn_descendants():
 		index += 1
 		
 func _on_sound_deleted(node : AudioNode):
-	print('deleted ' + node.to_string())
 	connected_by.erase(node)
 	resource.descendants.erase(node.resource)
 	

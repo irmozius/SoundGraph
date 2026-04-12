@@ -10,11 +10,17 @@
 [sub_resource type="Resource" id="Resource_4xsqp"]
 script = ExtResource("3_5q4gq")
 sample = ExtResource("2_csojv")
+pitch_min = 0.9400000000000001
+pitch_max = 1.07
 graph_pos = Vector2(60, 320)
 
 [sub_resource type="Resource" id="Resource_385wk"]
 script = ExtResource("3_5q4gq")
 sample = ExtResource("4_yj16n")
+pitch_min = 0.92
+pitch_max = 1.08
+vol_min = -4.400000000000006
+vol_max = 2.799999999999997
 graph_pos = Vector2(60, 580)
 
 [sub_resource type="Resource" id="Resource_4mg0d"]

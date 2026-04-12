@@ -55,7 +55,7 @@ func load_node_from_resource(resource: PlayerResource) -> AudioNode:
 	return node
 
 func add_connection(from_node: StringName, from_port: int, to_node: StringName, to_port: int):
-	print("connecting {0}'s {1} port to {2}'s {3} port".format([from_node, from_port, to_node, to_port]))
+	print("Connected {0}'s {1} port to {2}'s {3} port.".format([from_node, from_port, to_node, to_port]))
 	var connected : bool = is_node_connected(from_node, from_port, to_node, to_port)
 	if !connected:
 		var f_node : AudioNode = get_node(str(from_node))
@@ -70,8 +70,7 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 				graph_resource.add_resource(f_node.resource, self)
 				f_node.deleted.connect(func():
 					output_connections.erase(f_node)
-					graph_resource.graph.erase(f_node.resource)
-					print(graph_resource.graph), CONNECT_ONE_SHOT)
+					graph_resource.graph.erase(f_node.resource), CONNECT_ONE_SHOT)
 			_:
 				#t_node.connected_by.append(f_node)
 				f_node.deleted.connect(func():
@@ -114,6 +113,7 @@ func _on_connection_request(from_node: StringName, from_port: int, to_node: Stri
 	add_connection(from_node, from_port, to_node, to_port)
 
 func _on_disconnection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
+	print("Disconnected {0}'s {1} port from {2}'s {3} port.".format([from_node, from_port, to_node, to_port]))
 	disconnect_node(from_node, from_port, to_node, to_port)
 	var f_node : AudioNode = get_node(str(from_node))
 	var t_node : AudioNode = get_node(str(to_node))
@@ -141,7 +141,7 @@ func _on_delete_nodes_request(nodes: Array[StringName]) -> void:
 		if str(node_name) == "Output": continue
 		var node : AudioNode = get_node(str(node_name))
 		output_connections.erase(node)
-
+		print("Deleted " + node.title + ".")
 		node.emit_signal("deleted")
 		node.queue_free()
 
