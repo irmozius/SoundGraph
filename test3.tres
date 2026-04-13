@@ -1,46 +1,35 @@
 [gd_resource type="Resource" script_class="SoundGraph" format=3 uid="uid://djo5ydqmqhwd7"]
 
 [ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="1_wk1jv"]
-[ext_resource type="AudioStream" uid="uid://vbdp0ry45wjf" path="res://audio/Pistol Shot 9mm Semi-Auto 05.wav" id="2_o83hw"]
+[ext_resource type="AudioStream" uid="uid://bmjtcfepk4fgi" path="res://audio/step-001.wav" id="2_c2maw"]
 [ext_resource type="Script" uid="uid://dmckws1olg7em" path="res://addons/sound_graph/graph_player/SamplePlayer.gd" id="3_ap7cl"]
-[ext_resource type="AudioStream" uid="uid://bh5h65e1hfc0i" path="res://audio/Pistol Shot 9mm Semi-Auto 03.wav" id="4_i8dx0"]
+[ext_resource type="AudioStream" uid="uid://bliv527ipiv0m" path="res://audio/step-002.wav" id="4_wk1jv"]
 [ext_resource type="Script" uid="uid://c1wbjx56fd6e6" path="res://addons/sound_graph/graph_player/Sequence.gd" id="5_feewd"]
-[ext_resource type="Script" uid="uid://b5upviblojdot" path="res://addons/sound_graph/graph_player/Delay.gd" id="6_0k6xl"]
 [ext_resource type="Script" uid="uid://cy35ylleyi7tg" path="res://addons/sound_graph/graph_player/Repeat.gd" id="7_rhp33"]
 [ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="8_uy07f"]
 
-[sub_resource type="Resource" id="Resource_a4eor"]
+[sub_resource type="Resource" id="Resource_o83hw"]
 script = ExtResource("3_ap7cl")
-sample = ExtResource("2_o83hw")
-pitch_min = 0.81
-vol_min = -7.399999999999999
-graph_pos = Vector2(-200, 380)
+sample = ExtResource("2_c2maw")
+graph_pos = Vector2(-80, 380)
 
-[sub_resource type="Resource" id="Resource_avleo"]
+[sub_resource type="Resource" id="Resource_ap7cl"]
 script = ExtResource("3_ap7cl")
-sample = ExtResource("4_i8dx0")
-pitch_min = 0.81
-vol_min = -9.0
-graph_pos = Vector2(-200, 600)
+sample = ExtResource("4_wk1jv")
+graph_pos = Vector2(-80, 580)
 
-[sub_resource type="Resource" id="Resource_n6syh"]
+[sub_resource type="Resource" id="Resource_i8dx0"]
 script = ExtResource("5_feewd")
-descendants = Array[ExtResource("1_wk1jv")]([SubResource("Resource_a4eor"), SubResource("Resource_avleo")])
-graph_pos = Vector2(180, 460)
-
-[sub_resource type="Resource" id="Resource_1hagv"]
-script = ExtResource("6_0k6xl")
-descendants = Array[ExtResource("1_wk1jv")]([SubResource("Resource_n6syh")])
-graph_pos = Vector2(320, 480)
+descendants = Array[ExtResource("1_wk1jv")]([SubResource("Resource_o83hw"), SubResource("Resource_ap7cl")])
+graph_pos = Vector2(300, 480)
 
 [sub_resource type="Resource" id="Resource_d8mhi"]
 script = ExtResource("7_rhp33")
 repetitions = 2
-descendants = Array[ExtResource("1_wk1jv")]([SubResource("Resource_1hagv")])
-graph_pos = Vector2(520, 480)
+descendants = Array[ExtResource("1_wk1jv")]([SubResource("Resource_i8dx0")])
+graph_pos = Vector2(480, 500)
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("8_uy07f")
 graph = Array[ExtResource("1_wk1jv")]([SubResource("Resource_d8mhi")])
 output_position = Vector2(740, 460)
