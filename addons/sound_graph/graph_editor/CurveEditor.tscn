@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dn23tqn7wiwm8"]
+
+[ext_resource type="Script" uid="uid://qv0xmbrpkpjj" path="res://addons/sound_graph/graph_editor/curve_editor.gd" id="1_itjtb"]
+
+[node name="CurveEditor" type="Control" unique_id=1209502244]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+focus_mode = 2
+script = ExtResource("1_itjtb")

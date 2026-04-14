@@ -3,25 +3,20 @@
 [ext_resource type="Script" uid="uid://dvys0imfyfgeh" path="res://addons/sound_graph/graph_player/PlayerResource.gd" id="1_ofhgo"]
 [ext_resource type="Script" uid="uid://dmckws1olg7em" path="res://addons/sound_graph/graph_player/SamplePlayer.gd" id="2_h7yuw"]
 [ext_resource type="Script" uid="uid://c1wbjx56fd6e6" path="res://addons/sound_graph/graph_player/Sequence.gd" id="2_ofhgo"]
-[ext_resource type="AudioStream" uid="uid://bmjtcfepk4fgi" path="res://audio/step-001.wav" id="2_wjiom"]
 [ext_resource type="Script" uid="uid://b8tkjdyab0sv" path="res://addons/sound_graph/graph_editor/SoundGraph.gd" id="3_wow46"]
-[ext_resource type="AudioStream" uid="uid://bliv527ipiv0m" path="res://audio/step-002.wav" id="4_05ey8"]
 [ext_resource type="Script" uid="uid://jiw2k8snu140" path="res://addons/sound_graph/graph_player/Random.gd" id="5_4mg0d"]
 [ext_resource type="Script" uid="uid://cy35ylleyi7tg" path="res://addons/sound_graph/graph_player/Repeat.gd" id="6_lwo30"]
-[ext_resource type="AudioStream" uid="uid://vbdp0ry45wjf" path="res://audio/Pistol Shot 9mm Semi-Auto 05.wav" id="7_a7wtu"]
-[ext_resource type="AudioStream" uid="uid://bh5h65e1hfc0i" path="res://audio/Pistol Shot 9mm Semi-Auto 03.wav" id="8_lwo30"]
+[ext_resource type="Script" uid="uid://4l1y3bsh7040" path="res://addons/sound_graph/graph_player/Variable.gd" id="8_y21bs"]
 [ext_resource type="Script" uid="uid://b5upviblojdot" path="res://addons/sound_graph/graph_player/Delay.gd" id="9_kg8mt"]
 
 [sub_resource type="Resource" id="Resource_gbd8m"]
 script = ExtResource("2_h7yuw")
-sample = ExtResource("2_wjiom")
 pitch_min = 0.93
 vol_min = -2.4000000000000057
 graph_pos = Vector2(-240, 120)
 
 [sub_resource type="Resource" id="Resource_n87su"]
 script = ExtResource("2_h7yuw")
-sample = ExtResource("4_05ey8")
 graph_pos = Vector2(-260, 320)
 
 [sub_resource type="Resource" id="Resource_hyxlp"]
@@ -37,14 +32,12 @@ graph_pos = Vector2(240, 260)
 
 [sub_resource type="Resource" id="Resource_y21bs"]
 script = ExtResource("2_h7yuw")
-sample = ExtResource("7_a7wtu")
 pitch_min = 0.79
 vol_min = -3.4000000000000057
 graph_pos = Vector2(-220, 660)
 
 [sub_resource type="Resource" id="Resource_kh6m1"]
 script = ExtResource("2_h7yuw")
-sample = ExtResource("8_lwo30")
 graph_pos = Vector2(-220, 860)
 
 [sub_resource type="Resource" id="Resource_34mvg"]

@@ -15,6 +15,15 @@ slot/0/right_type = 0
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 1
+slot/1/left_color = Color(0, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
 script = ExtResource("1_q30ut")
 spinbox = NodePath("HBox/SpinBox")
 
@@ -31,5 +40,8 @@ layout_mode = 2
 min_value = 1.0
 max_value = 25.0
 value = 1.0
+
+[node name="Label" type="Label" parent="." unique_id=687585080]
+layout_mode = 2
 
 [connection signal="value_changed" from="HBox/SpinBox" to="." method="_on_spin_box_value_changed"]

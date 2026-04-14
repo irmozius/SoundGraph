@@ -20,12 +20,12 @@ node_place_menu_scene = ExtResource("2_8qwio")
 [node name="Output" type="GraphNode" parent="." unique_id=1581384518]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 525.0
-offset_top = 243.0
-offset_right = 663.0
-offset_bottom = 393.0
+offset_left = 733.0
+offset_top = 262.0
+offset_right = 871.0
+offset_bottom = 412.0
 mouse_filter = 1
-position_offset = Vector2(525, 243)
+position_offset = Vector2(733, 262)
 title = "Output"
 slot/0/left_enabled = true
 slot/0/left_type = 0

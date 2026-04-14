@@ -1,6 +1,8 @@
 @tool
 class_name SamplePlayerNode extends AudioNode
 
+@export var left_port_map : Dictionary[int, String]
+
 @export var add_button : Button
 @export var file_dialog : FileDialog
 @export var play_button : Button

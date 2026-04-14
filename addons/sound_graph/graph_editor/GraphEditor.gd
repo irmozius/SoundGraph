@@ -64,19 +64,23 @@ func add_connection(from_node: StringName, from_port: int, to_node: StringName, 
 			#t_node.resource.descendants[to_port] = f_node.resource
 		connect_node(from_node, from_port, to_node, to_port)
 		f_node.connected_to.append(t_node)
-		match get_node_title(str(to_node)):
-			"Output":
-				output_connections.append(f_node)
-				graph_resource.add_resource(f_node.resource, self, "Master")
-				f_node.deleted.connect(func():
-					output_connections.erase(f_node)
-					graph_resource.graph.erase(f_node.resource), CONNECT_ONE_SHOT)
-			_:
-				#t_node.connected_by.append(f_node)
-				f_node.deleted.connect(func():
-					set_descendants(t_node.name), CONNECT_ONE_SHOT)
-				f_node.resource.root_node = self
-				set_descendants(to_node)
+		var to_node_title : String = get_node_title(str(to_node))
+		if to_node_title == "Output":
+			output_connections.append(f_node)
+			graph_resource.add_resource(f_node.resource, self, "Master")
+			f_node.deleted.connect(func():
+				output_connections.erase(f_node)
+				graph_resource.graph.erase(f_node.resource), CONNECT_ONE_SHOT)
+		else:
+			f_node.deleted.connect(func():
+				set_descendants(t_node.name), CONNECT_ONE_SHOT)
+			f_node.resource.root_node = self
+			set_descendants(to_node)
+			match from_node:
+				"Mapping":
+					f_node.connect_to(t_node, to_port)
+				_:
+					print('connecting something else')
 
 func set_descendants(node_name : String):
 	var con_list : Array[Dictionary] = get_connection_list_from_node(node_name)
@@ -125,10 +129,7 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 			graph_resource.graph.erase(f_node.resource)
 		_:
 			set_descendants(to_node)
-			#t_node.connected_by.erase(f_node)
-			#t_node.resource.descendants.erase(f_node.resource)
-			if !(f_node in t_node.connected_by):
-				f_node.deleted.disconnect(t_node._on_sound_deleted)
+
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
